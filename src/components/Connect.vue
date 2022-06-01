@@ -10,11 +10,14 @@
         </div>
         <p class="back-text">Back</p>
       </div>
+      <div class="title">
+        <p class="title-text">C O N N E C T</p>
+      </div>
       <div class="vin"></div>
       <div class="highlight"></div>
       <div class="overlay"></div>
       <div class="connect-icon-box">
-        <div class="linkedin button" @click="changeScreen('connect')">
+        <div class="linkedin button">
           <div class="svg-wrapper">
             <img class="icon" src="@/assets/linkedin-brands.svg" />
           </div>
@@ -106,6 +109,16 @@ export default {
   z-index: 5;
   pointer-events: none;
   filter: drop-shadow(12px 12px 16px rgba(#000000, 1));
+}
+
+.title {
+  margin-top: 4px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  grid-area: a / b / a / c;
+  color: #73d393;
+  font-weight: 800;
 }
 
 .connect-card {

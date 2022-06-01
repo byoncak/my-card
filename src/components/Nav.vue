@@ -14,7 +14,7 @@
         <div v-show="connect" class="icon-title">Connect</div>
       </div>
 
-      <div class="skills button" :class="button">
+      <div class="skills button" @click="changeScreen('skills')">
         <div class="svg-wrapper">
           <img class="icon" src="@/assets/wand-magic-sparkles-solid.svg" />
         </div>
@@ -40,7 +40,9 @@
     <div
       class="skills-screen"
       v-show="this.$store.state.cardScreen === 'skills'"
-    ></div>
+    >
+      <SkillsBlock />
+    </div>
     <div
       class="projects-screen"
       v-show="this.$store.state.cardScreen === 'projects'"
@@ -54,6 +56,7 @@
 
 <script>
 import ConnectBlock from "./Connect.vue";
+import SkillsBlock from "./Skills.vue";
 
 export default {
   name: "NavBlock",
@@ -65,6 +68,7 @@ export default {
   },
   components: {
     ConnectBlock,
+    SkillsBlock,
   },
   methods: {
     changeScreen(screen) {

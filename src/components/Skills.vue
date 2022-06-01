@@ -1,41 +1,29 @@
 <template>
   <div class="skills-container">
-    <div
-      class="skills-card"
-      v-show="this.$store.state.cardScreen === 'connect'"
-    >
+    <div class="skills-card" v-show="this.$store.state.cardScreen === 'skills'">
       <div class="back" @click="changeScreen('home')">
         <div class="svg-wrapper">
           <img class="back-arrow" src="@/assets/angles-left-solid.svg" />
         </div>
         <p class="back-text">Back</p>
       </div>
+      <div class="title">
+        <p class="title-text">S K I L L S</p>
+      </div>
       <div class="vin"></div>
       <div class="highlight"></div>
       <div class="overlay"></div>
-      <div class="connect-icon-box">
-        <div class="linkedin button" @click="changeScreen('connect')">
-          <div class="svg-wrapper">
-            <img class="icon" src="@/assets/linkedin-brands.svg" />
-          </div>
-          <div v-show="connect" class="icon-title">Connect</div>
+      <div class="mastered">
+        <p class="title-text">M A S T E R E D</p>
+        <div class="svg-wrapper">
+          <img class="skills" src="@/assets/skill-placeholder.svg" />
         </div>
+      </div>
 
-        <div class="twitter button" :class="button">
-          <div class="svg-wrapper">
-            <img class="icon" src="@/assets/twitter-brands.svg" />
-          </div>
-        </div>
-
-        <div class="instagram button" :class="button">
-          <div class="svg-wrapper">
-            <img class="icon" src="@/assets/instagram-brands.svg" />
-          </div>
-        </div>
-        <div class="github button" :class="button">
-          <div class="svg-wrapper">
-            <img class="icon" src="@/assets/github-brands.svg" />
-          </div>
+      <div class="improving">
+        <p class="title-text">I M P R O V I N G</p>
+        <div class="svg-wrapper">
+          <img class="skills" src="@/assets/skill-placeholder2.svg" />
         </div>
       </div>
     </div>
@@ -44,7 +32,7 @@
 
 <script>
 export default {
-  name: "ConnectBlock",
+  name: "SkillsBlock",
   data() {
     return {};
   },
@@ -108,6 +96,15 @@ export default {
   filter: drop-shadow(12px 12px 16px rgba(#000000, 1));
 }
 
+.title {
+  margin-top: 4px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  grid-area: a / b / a / c;
+  font-weight: 800;
+}
+
 .skills-card {
   border: 3.2px solid #73d393;
   justify-self: center;
@@ -128,16 +125,6 @@ export default {
   z-index: 3;
   background-color: #0e3933;
   filter: drop-shadow(0px 0px 24px rgba(#73d393, 0.32));
-}
-
-.connect-icon-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  grid-column-start: a;
-  grid-column-end: d;
-  grid-row-start: e;
-  grid-row-end: i;
 }
 
 .back {
@@ -165,32 +152,38 @@ export default {
   margin-right: 8px;
 }
 
+.mastered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-area: e / a / j / b;
+}
+
+.title-text {
+  color: #73d393;
+}
+
+.improving {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  grid-area: g / c / l / d;
+}
 //ICONS
 
-//Connect
-
-.linkedin {
-  padding: 1.6em;
-  z-index: 5;
-}
-
-.twitter {
-  padding: 1.6em;
-  z-index: 5;
-}
-
-.instagram {
-  padding: 1.6em;
-  z-index: 5;
-}
-
-.github {
-  padding: 1.6em;
-  z-index: 5;
-}
+//Skills
 
 .svg-wrapper {
   filter: drop-shadow(0px 0px 5px rgba(#73d393, 1));
+}
+
+img.skills {
+  filter: invert(87%) sepia(4%) saturate(4085%) hue-rotate(81deg)
+    brightness(91%) contrast(81%);
+  height: 120px;
+  z-index: 1;
 }
 
 img.icon {
