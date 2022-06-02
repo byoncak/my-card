@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class="github button" :class="button">
+      <div class="github button" @click="changeScreen('projects')">
         <div class="svg-wrapper">
           <img class="icon" src="@/assets/code-commit-solid.svg" />
         </div>
@@ -46,7 +46,9 @@
     <div
       class="projects-screen"
       v-show="this.$store.state.cardScreen === 'projects'"
-    ></div>
+    >
+      <ProjectsBlock />
+    </div>
     <div
       class="info-screen"
       v-show="this.$store.state.cardScreen === 'info'"
@@ -57,6 +59,7 @@
 <script>
 import ConnectBlock from "./Connect.vue";
 import SkillsBlock from "./Skills.vue";
+import ProjectsBlock from "./Projects.vue";
 
 export default {
   name: "NavBlock",
@@ -69,6 +72,7 @@ export default {
   components: {
     ConnectBlock,
     SkillsBlock,
+    ProjectsBlock,
   },
   methods: {
     changeScreen(screen) {
@@ -124,7 +128,7 @@ export default {
   align-self: center;
   justify-self: center;
   background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.32) 50%);
-  background-size: 100% 3.2px, 3.2px 100%;
+  background-size: 100% 3px, 3px 100%;
   z-index: 5;
   pointer-events: none;
   filter: drop-shadow(12px 12px 16px rgba(#000000, 1));
@@ -157,7 +161,7 @@ export default {
   grid-row-end: i;
   grid-column-start: a;
   grid-column-end: b;
-  background-color: #26976c;
+  background-color: #338a68;
   align-self: center;
   justify-self: center;
   border-radius: 100%;
@@ -166,7 +170,7 @@ export default {
   border: 2.4px solid #26976c;
 }
 .profile-pic {
-  height: 160px;
+  height: 144px;
   border-radius: 100%;
   mix-blend-mode: overlay;
   z-index: 4;

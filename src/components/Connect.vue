@@ -105,7 +105,7 @@ export default {
   align-self: center;
   justify-self: center;
   background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.32) 50%);
-  background-size: 100% 3.2px, 3.2px 100%;
+  background-size: 100% 3px, 3px 100%;
   z-index: 5;
   pointer-events: none;
   filter: drop-shadow(12px 12px 16px rgba(#000000, 1));
@@ -231,6 +231,7 @@ img.back-arrow {
   font-size: 1em;
   font-weight: lighter;
   margin-top: 0px;
+  padding: 32px;
   transition: margin 0.2s ease-in-out;
   background: transparent;
   cursor: pointer;

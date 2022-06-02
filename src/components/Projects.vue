@@ -1,6 +1,9 @@
 <template>
-  <div class="skills-container">
-    <div class="skills-card" v-show="this.$store.state.cardScreen === 'skills'">
+  <div class="projects-container">
+    <div
+      class="projects-card"
+      v-show="this.$store.state.cardScreen === 'projects'"
+    >
       <div class="back" @click="changeScreen('home')">
         <div class="svg-wrapper">
           <img class="back-arrow" src="@/assets/angles-left-solid.svg" />
@@ -8,22 +11,17 @@
         <p class="back-text">Back</p>
       </div>
       <div class="title">
-        <p class="title-text">S K I L L S</p>
+        <p class="title-text">P R O J E C T S</p>
       </div>
       <div class="vin"></div>
       <div class="highlight"></div>
       <div class="overlay"></div>
-      <div class="skills-collection">
-        <div class="skill-cards" v-for="skill in skills" v-bind:key="skill.id">
-          <div class="card-bg">
-            <div class="svg-wrapper">
-              <img class="skills" :src="`${skill.icon}`" />
-            </div>
-            <div class="label">
-              <p class="label-text">{{ skill.label }}</p>
-            </div>
-          </div>
-        </div>
+      <div class="mastered">
+        <p class="title-text">Pokedex Catch</p>
+      </div>
+
+      <div class="improving">
+        <p class="title-text">Dark Mode Toggle</p>
       </div>
     </div>
   </div>
@@ -31,79 +29,13 @@
 
 <script>
 export default {
-  name: "SkillsBlock",
+  name: "ProjectsBlock",
   data() {
-    return {
-      skills: [
-        {
-          id: 0,
-          label: "C#",
-          icon: require("@/assets/code-solid.svg"),
-        },
-        {
-          id: 1,
-          label: "VUE",
-          icon: require("@/assets/vuejs-brands.svg"),
-        },
-        {
-          id: 2,
-          label: "JAVASCRIPT",
-          icon: require("@/assets/js-square-brands.svg"),
-        },
-        {
-          id: 3,
-          label: "SQL",
-          icon: require("@/assets/database-solid.svg"),
-        },
-        {
-          id: 4,
-          label: "CREATIVE",
-          icon: require("@/assets/pencil-solid.svg"),
-        },
-        {
-          id: 5,
-          label: "TEAM PLAYER",
-          icon: require("@/assets/face-grin-wide-solid.svg"),
-        },
-        {
-          id: 6,
-          label: "FAST LEARNER",
-          icon: require("@/assets/brain-solid.svg"),
-        },
-        {
-          id: 7,
-          label: "LEADERSHIP",
-          icon: require("@/assets/people-group-solid.svg"),
-        },
-        {
-          id: 8,
-          label: "DETAIL ORIENTED",
-          icon: require("@/assets/microscope-solid.svg"),
-        },
-        {
-          id: 9,
-          label: "COMPETITIVE",
-          icon: require("@/assets/trophy-solid.svg"),
-        },
-        {
-          id: 10,
-          label: "FUTURE THINKING",
-          icon: require("@/assets/user-astronaut-solid.svg"),
-        },
-        {
-          id: 11,
-          label: "CONSTANT GROWTH",
-          icon: require("@/assets/seedling-solid.svg"),
-        },
-      ],
-    };
+    return {};
   },
   methods: {
     changeScreen(screen) {
       this.$store.dispatch(`triggerScreenChange`, screen);
-    },
-    logit(it) {
-      console.log(it);
     },
   },
 };
@@ -170,7 +102,7 @@ export default {
   font-weight: 800;
 }
 
-.skills-card {
+.projects-card {
   border: 3.2px solid #73d393;
   justify-self: center;
   align-self: center;
@@ -217,26 +149,24 @@ export default {
   margin-right: 8px;
 }
 
-.skills-collection {
+.mastered {
   display: flex;
-  flex-wrap: wrap;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  margin-top: -0.4rem;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  grid-area: e / a / l / d;
-  font-size: 8px;
-  color: #73d393;
-}
-
-.card-bg {
-  height: 72px;
-  width: 88px;
+  grid-area: e / a / j / b;
 }
 
 .title-text {
   color: #73d393;
+}
+
+.improving {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  grid-area: g / c / l / d;
 }
 //ICONS
 
@@ -249,7 +179,7 @@ export default {
 img.skills {
   filter: invert(87%) sepia(4%) saturate(4085%) hue-rotate(81deg)
     brightness(91%) contrast(81%);
-  height: 23px;
+  height: 120px;
   z-index: 1;
 }
 
@@ -267,7 +197,7 @@ img.back-arrow {
   z-index: 1;
 }
 
-.skills-container {
+.projects-container {
   display: flex;
   width: 100vw;
   justify-content: center;
