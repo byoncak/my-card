@@ -51,8 +51,9 @@ export default {
     rgba(10, 69, 52, 0.8) 120%
   );
   border-radius: 1.6rem;
-  width: 26.4rem;
-  height: 16.4rem;
+  max-width: 80vw;
+  width: 30.4rem;
+  height: 20.4rem;
   position: absolute;
   align-self: center;
   justify-self: center;
@@ -69,8 +70,9 @@ export default {
     rgba(#73d393, 0.8) 64%,
     rgba(142, 102, 213, 0) 100%
   );
-  width: 26rem;
-  height: 16rem;
+  max-width: 80vw;
+  width: 30rem;
+  height: 20rem;
   position: absolute;
   align-self: center;
   justify-self: center;
@@ -80,9 +82,10 @@ export default {
 }
 
 .overlay {
+  max-width: 80vw;
   border-radius: 1.6rem;
-  width: 26rem;
-  height: 16rem;
+  width: 30rem;
+  height: 20rem;
   position: absolute;
   align-self: center;
   justify-self: center;
@@ -94,7 +97,6 @@ export default {
 }
 
 .title {
-  margin-top: 4px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -116,8 +118,9 @@ export default {
   grid-template-rows: repeat(4, 25%);
   grid-template-columns: repeat(4, 25%);
   border-radius: 1.6rem;
-  width: 26rem;
-  height: 16rem;
+  width: 30rem;
+  max-width: 80vw;
+  height: 20rem;
   position: relative;
   z-index: 3;
   background-color: #0e3933;
@@ -129,7 +132,7 @@ export default {
   grid-area: a;
   align-items: center;
   padding-left: 16px;
-  margin-top: -16px;
+  margin-top: -32px;
   justify-content: flex-start;
   width: auto;
   background-color: transparent;
@@ -159,6 +162,7 @@ export default {
 
 .title-text {
   color: #73d393;
+  font-size: 16px;
 }
 
 .improving {

@@ -92,8 +92,8 @@ export default {
     rgba(10, 69, 52, 0.8) 120%
   );
   border-radius: 1.6rem;
-  width: 26.4rem;
-  height: 16.4rem;
+  width: 30.4rem;
+  height: 20.4rem;
   position: absolute;
   align-self: center;
   justify-self: center;
@@ -110,8 +110,8 @@ export default {
     rgba(#73d393, 0.8) 64%,
     rgba(142, 102, 213, 0) 100%
   );
-  width: 26rem;
-  height: 16rem;
+  width: 30rem;
+  height: 20rem;
   position: absolute;
   align-self: center;
   justify-self: center;
@@ -122,8 +122,8 @@ export default {
 
 .overlay {
   border-radius: 1.6rem;
-  width: 26rem;
-  height: 16rem;
+  width: 30rem;
+  height: 20rem;
   position: absolute;
   align-self: center;
   justify-self: center;
@@ -148,8 +148,8 @@ export default {
   grid-template-rows: repeat(4, 25%);
   grid-template-columns: repeat(4, 25%);
   border-radius: 1.6rem;
-  width: 26rem;
-  height: 16rem;
+  width: 30rem;
+  height: 20rem;
   position: relative;
   z-index: 3;
   background-color: #0e3933;

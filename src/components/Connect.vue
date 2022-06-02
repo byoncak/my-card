@@ -17,25 +17,25 @@
       <div class="highlight"></div>
       <div class="overlay"></div>
       <div class="connect-icon-box">
-        <div class="linkedin button">
+        <div class="linkedin button" @click="goToLinkedIn()">
           <div class="svg-wrapper">
             <img class="icon" src="@/assets/linkedin-brands.svg" />
           </div>
           <div v-show="connect" class="icon-title">Connect</div>
         </div>
 
-        <div class="twitter button" :class="button">
+        <div class="twitter button" @click="goToTwitter()">
           <div class="svg-wrapper">
             <img class="icon" src="@/assets/twitter-brands.svg" />
           </div>
         </div>
 
-        <div class="instagram button" :class="button">
+        <div class="instagram button" @click="goToInstagram()">
           <div class="svg-wrapper">
             <img class="icon" src="@/assets/instagram-brands.svg" />
           </div>
         </div>
-        <div class="github button" :class="button">
+        <div class="github button" @click="goToGitHub()">
           <div class="svg-wrapper">
             <img class="icon" src="@/assets/github-brands.svg" />
           </div>
@@ -55,6 +55,18 @@ export default {
     changeScreen(screen) {
       this.$store.dispatch(`triggerScreenChange`, screen);
     },
+    goToLinkedIn() {
+      window.open("https://www.linkedin.com/in/brettyoncak");
+    },
+    goToTwitter() {
+      window.open("https://www.twitter.com/needmorejpegs");
+    },
+    goToInstagram() {
+      window.open("https://www.instagram.com/brettyoncak");
+    },
+    goToGitHub() {
+      window.open("https://www.github.com/byoncak");
+    },
   },
 };
 </script>
@@ -69,8 +81,8 @@ export default {
     rgba(10, 69, 52, 0.8) 120%
   );
   border-radius: 1.6rem;
-  width: 26.4rem;
-  height: 16.4rem;
+  width: 30.4rem;
+  height: 20.4rem;
   position: absolute;
   align-self: center;
   justify-self: center;
@@ -87,8 +99,8 @@ export default {
     rgba(#73d393, 0.8) 64%,
     rgba(142, 102, 213, 0) 100%
   );
-  width: 26rem;
-  height: 16rem;
+  width: 30rem;
+  height: 20rem;
   position: absolute;
   align-self: center;
   justify-self: center;
@@ -99,8 +111,8 @@ export default {
 
 .overlay {
   border-radius: 1.6rem;
-  width: 26rem;
-  height: 16rem;
+  width: 30rem;
+  height: 20rem;
   position: absolute;
   align-self: center;
   justify-self: center;
@@ -112,7 +124,6 @@ export default {
 }
 
 .title {
-  margin-top: 4px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -135,8 +146,8 @@ export default {
   grid-template-rows: repeat(4, 25%);
   grid-template-columns: repeat(4, 25%);
   border-radius: 1.6rem;
-  width: 26rem;
-  height: 16rem;
+  width: 30rem;
+  height: 20rem;
   position: relative;
   z-index: 3;
   background-color: #0e3933;
@@ -158,7 +169,7 @@ export default {
   grid-area: a;
   align-items: center;
   padding-left: 16px;
-  margin-top: -16px;
+  margin-top: -32px;
   justify-content: flex-start;
   width: auto;
   background-color: transparent;
@@ -178,6 +189,9 @@ export default {
   margin-right: 8px;
 }
 
+.title-text {
+  font-size: 16px;
+}
 //ICONS
 
 //Connect
