@@ -25,7 +25,7 @@
           <img class="icon" src="@/assets/code-commit-solid.svg" />
         </div>
       </div>
-      <div class="contact button" :class="button">
+      <div class="contact button" @click="changeScreen('info')">
         <div class="svg-wrapper">
           <img class="icon" src="@/assets/address-card-solid.svg" />
         </div>
@@ -49,10 +49,9 @@
     >
       <ProjectsBlock />
     </div>
-    <div
-      class="info-screen"
-      v-show="this.$store.state.cardScreen === 'info'"
-    ></div>
+    <div class="info-screen" v-show="this.$store.state.cardScreen === 'info'">
+      <InfoBlock />
+    </div>
   </div>
 </template>
 
@@ -60,6 +59,7 @@
 import ConnectBlock from "./Connect.vue";
 import SkillsBlock from "./Skills.vue";
 import ProjectsBlock from "./Projects.vue";
+import InfoBlock from "./Info.vue";
 
 export default {
   name: "NavBlock",
@@ -73,6 +73,7 @@ export default {
     ConnectBlock,
     SkillsBlock,
     ProjectsBlock,
+    InfoBlock,
   },
   methods: {
     changeScreen(screen) {

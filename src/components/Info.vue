@@ -1,9 +1,6 @@
 <template>
-  <div class="projects-container">
-    <div
-      class="projects-card"
-      v-show="this.$store.state.cardScreen === 'projects'"
-    >
+  <div class="info-container">
+    <div class="info-card" v-show="this.$store.state.cardScreen === 'info'">
       <div class="back" @click="changeScreen('home')">
         <div class="svg-wrapper">
           <img class="back-arrow" src="@/assets/angles-left-solid.svg" />
@@ -11,40 +8,17 @@
         <p class="back-text">Back</p>
       </div>
       <div class="title">
-        <p class="title-text">P R O J E C T S</p>
+        <p class="title-text">M Y &nbsp;&nbsp; I N F O</p>
       </div>
       <div class="vin"></div>
       <div class="highlight"></div>
       <div class="overlay"></div>
-      <div class="projects-collection">
-        <div
-          class="project-cards"
-          v-for="project in projects"
-          v-bind:key="project.id"
-        >
-          <div
-            class="animate description"
-            :style="{ opacity: descOpacity }"
-            :key="project.id"
-          >
-            <p class="description-text">{{ project.description }}</p>
-          </div>
-          <div
-            class="card-bg"
-            :key="project.id"
-            @click="goToProject(project.link)"
-          >
-            <div class="svg-wrapper">
-              <img
-                class="preview"
-                :src="`${project.preview}`"
-                @mouseover="fadeIn()"
-                @mouseleave="fadeOut()"
-                :key="project.id"
-              />
-            </div>
+      <div class="info-collection">
+        <div class="info-lines" v-for="info in information" :key="info.id">
+          <div class="line">
             <div class="label">
-              <p class="label-text">{{ project.name }}</p>
+              {{ info.label }}
+              <p class="label-text">{{ info.info }}</p>
             </div>
           </div>
         </div>
@@ -55,34 +29,34 @@
 
 <script>
 export default {
-  name: "ProjectsBlock",
+  name: "InfoBlock",
   data() {
     return {
-      descOpacity: 0,
-      projects: [
+      opacity: 0,
+      myResume: {
+        icon: "",
+        link: "",
+      },
+      information: [
         {
           id: 0,
-          name: "Pokedex Catch",
-          description:
-            "Search for any of the original 151 Pokemon. View their Type and Stats. Catch your favorites and chill with your squad.",
-          preview: require("@/assets/pokedexcatch.jpg"),
-          link: "http://pokedexcatch.netlify.app",
+          label: "Name: ",
+          info: "Brett Yoncak",
         },
         {
           id: 1,
-          name: "Dark Mode Toggle",
-          description:
-            "Animated Toggle Button that changes the site theme from Light to Dark.",
-          preview: require("@/assets/darkModeTogglePreview.jpg"),
-          link: "https://www.github.com/byoncak/vue-component",
+          label: "Email: ",
+          info: "brett@bct.studio",
         },
         {
           id: 2,
-          name: "Techtoon",
-          description:
-            "Search through all of Marvel's comics, collect your faves, and view the public collections of other users.",
-          preview: require("@/assets/techtoon.jpg"),
-          link: "https://www.github.com/byoncak/techtoon",
+          label: "Phone: ",
+          info: "+1 609-634-8787",
+        },
+        {
+          id: 3,
+          label: "Pronouns: ",
+          info: "he / him",
         },
       ],
     };
@@ -91,16 +65,14 @@ export default {
     changeScreen(screen) {
       this.$store.dispatch(`triggerScreenChange`, screen);
     },
-    goToProject(link) {
+    goToResume(link) {
       window.open(link);
     },
     fadeOut() {
-      this.hover = false;
-      this.descOpacity = 0;
+      this.opacity = 0;
     },
     fadeIn() {
-      this.hover = true;
-      this.descOpacity = 1;
+      this.opacity = 1;
     },
   },
 };
@@ -173,7 +145,7 @@ export default {
   font-weight: 800;
 }
 
-.projects-card {
+.info-card {
   border: 3.2px solid #73d393;
   justify-self: center;
   align-self: center;
@@ -209,14 +181,16 @@ export default {
   cursor: pointer;
 }
 
-.card-bg {
-  display: flex;
-  flex-direction: column;
-  height: 80px;
-  width: 200px;
+.label {
+  display: inline-flex;
+  font-weight: 900;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+}
+
+.label-text {
+  font-weight: 200;
+  padding-left: 1em;
 }
 
 .back-text {
@@ -231,42 +205,17 @@ export default {
   margin-right: 8px;
 }
 
-.projects-collection {
+.info-collection {
   display: flex;
-  flex-wrap: wrap;
-  margin-left: 2rem;
+  flex-direction: column;
+  margin-left: 10.4rem;
   margin-right: 2rem;
-  margin-top: -1.6rem;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+  margin-top: -3rem;
+  align-items: flex-start;
   grid-area: e / a / p / d;
   font-size: 14px;
   color: #73d393;
-}
-
-.description {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  height: 80px;
-  width: 200px;
-  position: absolute;
-  margin-top: -24px;
-  z-index: 6;
-  pointer-events: none;
-  background-color: #00000089;
-}
-
-.description-text {
-  font-size: 12px;
-}
-
-.preview {
-  border-radius: 2px;
-  object-fit: cover;
-  height: 60px;
-  width: 200px;
 }
 
 .title-text {
@@ -304,7 +253,7 @@ img.back-arrow {
   z-index: 1;
 }
 
-.projects-container {
+.info-container {
   display: flex;
   width: 100vw;
   justify-content: center;
